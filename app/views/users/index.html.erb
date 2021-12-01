@@ -1,0 +1,26 @@
+<center>
+<h1>Users</h1>
+
+
+
+<table>
+  <tbody>
+    <% @users.each do |user| %>
+      <tr>
+        <% if user.image? %>
+          <td><%= image_tag user.image.url(:medium),style: 'height:7vw;width:7vw;', alt:"#{user.username}'s image" %></td>
+        <% else %>
+          <td><%= image_tag ("default.jpg"),style: 'height:7vw;width:7vw;', alt:"#{user.username}'s image"%></td>
+        <% end %>
+        <td><%= user.username %></td>
+        <td><%= user.email %></td>
+        <td><%= link_to 'Show profile', user %></td>
+        <td><%= link_to 'Edit profile', edit_user_path(user) %></td>
+        <td><%= link_to 'Delete user', user, method: :delete,data: { confirm: 'Are you sure?' }  %></td>
+      </tr>
+    <% end %>
+  </tbody>
+</table>  
+
+<%= link_to "Home",root_path %>
+</center>

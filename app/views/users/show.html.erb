@@ -1,0 +1,18 @@
+<center>    
+<h1>Your profile</h1>
+
+<%= image_tag @user.image.url(:medium) %>
+
+<div>
+<%= link_to "Edit your profile",edit_user_path(@user) %>
+</div>
+
+<h3> Bookings</h3>
+
+<%= render 'admin' %>
+
+
+<%= link_to 'New Booking',new_booking_path %>
+
+</center>
+
